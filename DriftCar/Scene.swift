@@ -11,15 +11,13 @@ import SceneKit
 class Scene: SCNScene {
 
     public func setupNodes() {
-        let floor = Floor()
-        self.rootNode.addChildNode(floor)
         
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.camera?.zFar = 300
         rootNode.addChildNode(cameraNode)
         
-        cameraNode.position = SCNVector3(x: 0, y: 60, z: 0)
+        cameraNode.position = SCNVector3(x: 0, y: 15, z: 100)
         
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
@@ -32,6 +30,12 @@ class Scene: SCNScene {
         ambientLightNode.light!.type = .ambient
         ambientLightNode.light!.color = NSColor.darkGray
         rootNode.addChildNode(ambientLightNode)
+        
+        let floor = Floor()
+        rootNode.addChildNode(floor)
+        
+        let track = Track()
+        rootNode.addChildNode(track)
         
     }
     
