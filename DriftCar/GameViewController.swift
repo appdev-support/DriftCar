@@ -15,6 +15,7 @@ class GameViewController: NSViewController {
         super.viewDidLoad()
         
         let scene = Scene()
+        scene.setupNodes()
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
