@@ -60,6 +60,27 @@ class Scene: SCNScene {
         let reactor = SCNParticleSystem(named: "reactor", inDirectory: "art.scnassets")!
         reactor.birthRate = 100
         pipeNode.addParticleSystem(reactor)
+        
+        let wheel0Node = chassisNode.childNode(withName: "wheelLocator_FL", recursively: true)!
+        let wheel1Node = chassisNode.childNode(withName: "wheelLocator_FR", recursively: true)!
+        let wheel2Node = chassisNode.childNode(withName: "wheelLocator_RL", recursively: true)!
+        let wheel3Node = chassisNode.childNode(withName: "wheelLocator_RR", recursively: true)!
+        
+        let wheel0 = SCNPhysicsVehicleWheel(node: wheel0Node)
+        let wheel1 = SCNPhysicsVehicleWheel(node: wheel1Node)
+        let wheel2 = SCNPhysicsVehicleWheel(node: wheel2Node)
+        let wheel3 = SCNPhysicsVehicleWheel(node: wheel3Node)
+        
+        let (min, max) = wheel0Node.boundingBox
+        let halfWidth = 0.5 * (max.x - min.x)
+        
+        wheel0.connectionPosition = wheel0Node.convertPosition(SCNVector3Zero, to: chassisNode) + SCNVector3Make(halfWidth, 0, 0)
+        wheel1.connectionPosition = wheel1Node.convertPosition(SCNVector3Zero, to: chassisNode) - SCNVector3Make(halfWidth, 0, 0)
+        wheel2.connectionPosition = wheel2Node.convertPosition(SCNVector3Zero, to: chassisNode) + SCNVector3Make(halfWidth, 0, 0)
+        wheel3.connectionPosition = wheel3Node.convertPosition(SCNVector3Zero, to: chassisNode) - SCNVector3Make(halfWidth, 0, 0)
+        
+        let vehicle = SCNPhysicsVehicle(chassisBody: body, wheels: [wheel0, wheel1, wheel2, wheel3])
+        self.physicsWorld.addBehavior(vehicle)
     }
     
 }
