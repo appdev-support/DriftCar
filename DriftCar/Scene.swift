@@ -55,6 +55,11 @@ class Scene: SCNScene {
         body.rollingFriction = 0
         
         chassisNode.physicsBody = body
+        
+        let pipeNode = chassisNode.childNode(withName: "pipe", recursively: true)!
+        let reactor = SCNParticleSystem(named: "reactor", inDirectory: "art.scnassets")!
+        reactor.birthRate = 100
+        pipeNode.addParticleSystem(reactor)
     }
     
 }
