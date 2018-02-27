@@ -89,4 +89,11 @@ class Scene: SCNScene {
         self.background.contents = files
     }
     
+    public func keyDown(with event: NSEvent) {
+        
+    }
+    
+    public func keyUp(with event: NSEvent) {
+        
+    }
 }
