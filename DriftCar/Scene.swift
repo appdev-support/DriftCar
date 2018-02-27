@@ -9,6 +9,9 @@
 import SceneKit
 
 class Scene: SCNScene {
+    
+    var vehicle: SCNPhysicsVehicle!
+    var reactor: SCNParticleSystem!
 
     public func setupNodes() {
         
@@ -61,6 +64,7 @@ class Scene: SCNScene {
         let reactor = SCNParticleSystem(named: "reactor", inDirectory: "art.scnassets")!
         reactor.birthRate = 100
         pipeNode.addParticleSystem(reactor)
+        self.reactor = reactor
         
         let wheel0Node = chassisNode.childNode(withName: "wheelLocator_FL", recursively: true)!
         let wheel1Node = chassisNode.childNode(withName: "wheelLocator_FR", recursively: true)!
@@ -82,6 +86,7 @@ class Scene: SCNScene {
         
         let vehicle = SCNPhysicsVehicle(chassisBody: body, wheels: [wheel0, wheel1, wheel2, wheel3])
         self.physicsWorld.addBehavior(vehicle)
+        self.vehicle = vehicle
     }
     
     func addSkybox() {
@@ -90,10 +95,65 @@ class Scene: SCNScene {
     }
     
     public func keyDown(with event: NSEvent) {
-        
+        switch event.keyCode {
+        case 49: //space
+            breakCar()
+        case 123: //left
+            left()
+        case 124: //right
+            right()
+        case 125: //backward
+            backward()
+        case 126: //forward
+            forward()
+        default:
+            break
+        }
     }
     
     public func keyUp(with event: NSEvent) {
-        
+        switch event.keyCode {
+        case 49:
+            vehicle.applyBrakingForce(0, forWheelAt: 2)
+            vehicle.applyBrakingForce(0, forWheelAt: 3)
+        case 123, 124:
+            vehicle.setSteeringAngle(0.0, forWheelAt: 0)
+            vehicle.setSteeringAngle(0.0, forWheelAt: 1)
+        case 125, 126: //forward, backward
+            reactor.birthRate = 0
+            vehicle.applyEngineForce(0, forWheelAt: 2)
+            vehicle.applyEngineForce(0, forWheelAt: 3)
+        default:
+            break;
+        }
     }
+    
+    func breakCar() {
+        vehicle.applyBrakingForce(1000, forWheelAt: 2)
+        vehicle.applyBrakingForce(1000, forWheelAt: 3)
+    }
+    
+    func forward() {
+        reactor.birthRate = 1000
+        
+        vehicle.applyEngineForce(1500, forWheelAt: 0)
+        vehicle.applyEngineForce(1500, forWheelAt: 1)
+    }
+    
+    func backward() {
+        reactor.birthRate = 1000
+        vehicle.applyEngineForce(-500, forWheelAt: 2)
+        vehicle.applyEngineForce(-500, forWheelAt: 3)
+    }
+    
+    func left() {
+        vehicle.setSteeringAngle(0.4, forWheelAt: 0)
+        vehicle.setSteeringAngle(0.4, forWheelAt: 1)
+    }
+    
+    func right() {
+        vehicle.setSteeringAngle(-0.4, forWheelAt: 0)
+        vehicle.setSteeringAngle(-0.4, forWheelAt: 1)
+    }
+    
 }
