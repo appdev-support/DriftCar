@@ -37,6 +37,7 @@ class Scene: SCNScene {
         let track = Track()
         rootNode.addChildNode(track)
         
+        addSkybox()
         addCar()
     }
     
@@ -81,6 +82,11 @@ class Scene: SCNScene {
         
         let vehicle = SCNPhysicsVehicle(chassisBody: body, wheels: [wheel0, wheel1, wheel2, wheel3])
         self.physicsWorld.addBehavior(vehicle)
+    }
+    
+    func addSkybox() {
+        let files = ["Left", "Right", "Top", "Bottom", "Back", "Front"].map({ "skybox.scnassets/skybox\($0).png"})
+        self.background.contents = files
     }
     
 }

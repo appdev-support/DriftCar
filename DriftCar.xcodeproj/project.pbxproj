@@ -16,6 +16,7 @@
 		083E2FC52045A159009554E2 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E2FC42045A159009554E2 /* Track.swift */; };
 		083E2FC72045A293009554E2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E2FC62045A293009554E2 /* Scene.swift */; };
 		083E2FC92045A6C5009554E2 /* SCNVector3+MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E2FC82045A6C5009554E2 /* SCNVector3+MathUtils.swift */; };
+		083E2FCB2045A9CC009554E2 /* skybox.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 083E2FCA2045A9CC009554E2 /* skybox.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		083E2FC42045A159009554E2 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		083E2FC62045A293009554E2 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		083E2FC82045A6C5009554E2 /* SCNVector3+MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+MathUtils.swift"; sourceTree = "<group>"; };
+		083E2FCA2045A9CC009554E2 /* skybox.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = skybox.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				083E2FAF2045A079009554E2 /* GameViewController.swift */,
 				083E2FC82045A6C5009554E2 /* SCNVector3+MathUtils.swift */,
 				083E2FB12045A079009554E2 /* art.scnassets */,
+				083E2FCA2045A9CC009554E2 /* skybox.scnassets */,
 				083E2FB32045A079009554E2 /* Assets.xcassets */,
 				083E2FB52045A079009554E2 /* Main.storyboard */,
 				083E2FB82045A079009554E2 /* Info.plist */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				083E2FB72045A079009554E2 /* Main.storyboard in Resources */,
+				083E2FCB2045A9CC009554E2 /* skybox.scnassets in Resources */,
 				083E2FB42045A079009554E2 /* Assets.xcassets in Resources */,
 				083E2FB22045A079009554E2 /* art.scnassets in Resources */,
 			);
