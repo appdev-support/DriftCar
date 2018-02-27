@@ -12,10 +12,10 @@
 		083E2FB22045A079009554E2 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 083E2FB12045A079009554E2 /* art.scnassets */; };
 		083E2FB42045A079009554E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 083E2FB32045A079009554E2 /* Assets.xcassets */; };
 		083E2FB72045A079009554E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083E2FB52045A079009554E2 /* Main.storyboard */; };
-		083E2FC02045A0EE009554E2 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E2FBF2045A0EE009554E2 /* Car.swift */; };
 		083E2FC32045A144009554E2 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E2FC22045A144009554E2 /* Floor.swift */; };
 		083E2FC52045A159009554E2 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E2FC42045A159009554E2 /* Track.swift */; };
 		083E2FC72045A293009554E2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E2FC62045A293009554E2 /* Scene.swift */; };
+		083E2FC92045A6C5009554E2 /* SCNVector3+MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E2FC82045A6C5009554E2 /* SCNVector3+MathUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,10 +27,10 @@
 		083E2FB62045A079009554E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		083E2FB82045A079009554E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		083E2FB92045A079009554E2 /* DriftCar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DriftCar.entitlements; sourceTree = "<group>"; };
-		083E2FBF2045A0EE009554E2 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		083E2FC22045A144009554E2 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		083E2FC42045A159009554E2 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		083E2FC62045A293009554E2 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		083E2FC82045A6C5009554E2 /* SCNVector3+MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+MathUtils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +67,7 @@
 				083E2FC12045A102009554E2 /* Nodes */,
 				083E2FAD2045A079009554E2 /* AppDelegate.swift */,
 				083E2FAF2045A079009554E2 /* GameViewController.swift */,
+				083E2FC82045A6C5009554E2 /* SCNVector3+MathUtils.swift */,
 				083E2FB12045A079009554E2 /* art.scnassets */,
 				083E2FB32045A079009554E2 /* Assets.xcassets */,
 				083E2FB52045A079009554E2 /* Main.storyboard */,
@@ -79,7 +80,6 @@
 		083E2FC12045A102009554E2 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				083E2FBF2045A0EE009554E2 /* Car.swift */,
 				083E2FC22045A144009554E2 /* Floor.swift */,
 				083E2FC42045A159009554E2 /* Track.swift */,
 			);
@@ -158,12 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				083E2FC92045A6C5009554E2 /* SCNVector3+MathUtils.swift in Sources */,
 				083E2FC32045A144009554E2 /* Floor.swift in Sources */,
 				083E2FC52045A159009554E2 /* Track.swift in Sources */,
 				083E2FC72045A293009554E2 /* Scene.swift in Sources */,
 				083E2FB02045A079009554E2 /* GameViewController.swift in Sources */,
 				083E2FAE2045A079009554E2 /* AppDelegate.swift in Sources */,
-				083E2FC02045A0EE009554E2 /* Car.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

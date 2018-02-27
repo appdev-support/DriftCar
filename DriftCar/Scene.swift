@@ -37,6 +37,24 @@ class Scene: SCNScene {
         let track = Track()
         rootNode.addChildNode(track)
         
+        addCar()
+    }
+    
+    func addCar() {
+        let carScene = SCNScene(named: "art.scnassets/Car.dae")!
+        let chassisNode = carScene.rootNode .childNode(withName: "rccarBody", recursively: false)!
+        chassisNode.position = SCNVector3Make(0, 0, 0)
+        chassisNode.rotation = SCNVector4Make(0, 1, 0, .pi)
+        self.rootNode.addChildNode(chassisNode)
+        
+        let body = SCNPhysicsBody(type: .dynamic, shape: nil)
+        body.allowsResting = false
+        body.mass = 80
+        body.restitution = 0.1
+        body.friction = 0.5
+        body.rollingFriction = 0
+        
+        chassisNode.physicsBody = body
     }
     
 }
