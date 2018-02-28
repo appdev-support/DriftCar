@@ -12,6 +12,7 @@ class Scene: SCNScene {
     
     var vehicle: SCNPhysicsVehicle!
     var reactor: SCNParticleSystem!
+    var camera: SCNNode!
 
     public func setupNodes() {
         
@@ -19,6 +20,7 @@ class Scene: SCNScene {
         cameraNode.camera = SCNCamera()
         cameraNode.camera?.zFar = 300
         rootNode.addChildNode(cameraNode)
+        self.camera = cameraNode
         
         cameraNode.position = SCNVector3(x: 0, y: 15, z: 100)
         
@@ -53,7 +55,7 @@ class Scene: SCNScene {
         
         let body = SCNPhysicsBody(type: .dynamic, shape: nil)
         body.allowsResting = false
-        body.mass = 80
+        body.mass = 100
         body.restitution = 0.1
         body.friction = 0.5
         body.rollingFriction = 0
@@ -87,6 +89,11 @@ class Scene: SCNScene {
         let vehicle = SCNPhysicsVehicle(chassisBody: body, wheels: [wheel0, wheel1, wheel2, wheel3])
         self.physicsWorld.addBehavior(vehicle)
         self.vehicle = vehicle
+        
+        
+        let constraint = SCNLookAtConstraint(target: chassisNode)
+        constraint.isGimbalLockEnabled = true
+        camera.constraints = [constraint]
     }
     
     func addSkybox() {
@@ -142,8 +149,8 @@ class Scene: SCNScene {
     
     func backward() {
         reactor.birthRate = 1000
-        vehicle.applyEngineForce(-500, forWheelAt: 2)
-        vehicle.applyEngineForce(-500, forWheelAt: 3)
+        vehicle.applyEngineForce(-500, forWheelAt: 0)
+        vehicle.applyEngineForce(-500, forWheelAt: 1)
     }
     
     func left() {
